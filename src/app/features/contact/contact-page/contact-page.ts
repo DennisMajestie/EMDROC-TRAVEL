@@ -1,7 +1,18 @@
 import { Component, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 import { PageHeader } from '../../../shared/components/page-header/page-header';
 import { InquiryService } from '../../../core/services/inquiry.service';
+import { EMDROC_CONTACT_INFO } from '../../../core/models';
+import type { InquiryTab } from '../../../core/models';
+
+const SERVICE_TAB_MAP: Record<string, InquiryTab> = {
+  'Flights': 'flights',
+  'Hotels': 'hotels',
+  'Tour Packages': 'tours',
+  'Visa Consultancy': 'visa',
+  'Corporate Travel': 'corporate',
+};
 
 @Component({
   selector: 'app-contact-page',
@@ -10,22 +21,28 @@ import { InquiryService } from '../../../core/services/inquiry.service';
   styleUrl: './contact-page.css',
 })
 export class ContactPage {
+  protected readonly contact = EMDROC_CONTACT_INFO;
   protected readonly submitting = signal(false);
-  protected readonly submitted = signal(false);
-  protected readonly error = signal<string | null>(null);
   protected contactForm: FormGroup;
+
+  protected readonly serviceOptions = Object.keys(SERVICE_TAB_MAP);
 
   constructor(
     private fb: FormBuilder,
     private inquiryService: InquiryService,
   ) {
     this.contactForm = this.fb.group({
-      name: ['', Validators.required],
+      fullName: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
-      phone: [''],
-      subject: ['', Validators.required],
-      message: ['', Validators.required],
+      serviceInterest: ['', Validators.required],
+      phone: ['', [Validators.required, Validators.pattern(/^\+?[0-9\s\-\(\)]{7,20}$/)]],
+      message: [''],
     });
+  }
+
+  protected fieldInvalid(field: string): boolean {
+    const control = this.contactForm.get(field);
+    return !!control && control.touched && control.invalid;
   }
 
   protected onSubmit(): void {
@@ -34,19 +51,36 @@ export class ContactPage {
       return;
     }
     this.submitting.set(true);
-    this.error.set(null);
 
-    const { name, email, phone, subject, message } = this.contactForm.value;
+    const { fullName, email, phone, serviceInterest, message } = this.contactForm.value;
+    const tab = SERVICE_TAB_MAP[serviceInterest] ?? 'corporate';
 
-    this.inquiryService.inquire({ name, email, phone, message, tab: 'corporate' }).subscribe({
+    this.inquiryService.inquire({ name: fullName, email, phone, message, tab }).subscribe({
       next: () => {
-        this.submitted.set(true);
         this.submitting.set(false);
         this.contactForm.reset();
+        Swal.fire({
+          icon: 'success',
+          title: 'Thank You!',
+          text: 'Your inquiry has been received. Our team will respond within 24 hours.',
+          confirmButtonColor: '#0097B2',
+          background: '#031D24',
+          color: '#ffffff',
+          iconColor: '#0097B2',
+        });
       },
-      error: () => {
-        this.error.set('Something went wrong. Please try again.');
+      error: (err: unknown) => {
         this.submitting.set(false);
+        const e = err as { text?: string };
+        Swal.fire({
+          icon: 'error',
+          title: 'Something went wrong',
+          text: e?.text || 'Please try again.',
+          confirmButtonColor: '#0097B2',
+          background: '#031D24',
+          color: '#ffffff',
+          iconColor: '#E6007E',
+        });
       },
     });
   }

@@ -1,4 +1,4 @@
-<section class="relative min-h-screen flex items-center pt-20 overflow-hidden" data-purpose="hero-container">
+<section class="relative min-h-[120vh] flex items-center pt-20 overflow-hidden" data-purpose="hero-container">
   <div class="absolute inset-0 z-0">
     @for (dest of destinations; track dest.id; let i = $index) {
       <div
@@ -14,8 +14,8 @@
   <div class="relative z-10 max-w-7xl mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
     <div class="space-y-8">
       <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight">
-        Journey to All<br/>
-        <span class="text-brand-teal">World Corners</span>
+        {{ activeDestination().heroTitle }}<br/>
+        <span class="text-brand-teal">{{ activeDestination().heroSubtitle }}</span>
       </h1>
       <p class="text-lg text-gray-200 max-w-md leading-relaxed">
         Unlock the wonders of the world: Your dream trip. Our tours offer a diverse range of destinations that cater to a wide variety of interests.
@@ -36,8 +36,8 @@
       </div>
     </div>
 
-    <div class="relative flex items-center justify-center min-h-[500px]" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
-      <div class="relative w-full max-w-[450px] h-[500px] flex items-center justify-center">
+    <div class="relative flex items-center justify-center min-h-[600px]" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+      <div class="relative w-full max-w-[450px] h-[600px] flex items-center justify-center">
         @for (dest of destinations; track dest.id; let i = $index) {
           <div
             class="absolute rounded-2xl overflow-hidden glass-effect border border-white/10 shadow-lg transition-all duration-500 ease-in-out"

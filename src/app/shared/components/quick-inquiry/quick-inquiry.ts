@@ -6,6 +6,7 @@
 
 import { Component, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 import { InquiryService } from '../../../core/services/inquiry.service';
 import { InquiryTab } from '../../../core/models';
 
@@ -18,8 +19,6 @@ import { InquiryTab } from '../../../core/models';
 export class QuickInquiry {
   protected readonly activeTab = signal<InquiryTab>('flights');
   protected readonly submitting = signal(false);
-  protected readonly submitted = signal(false);
-  protected readonly error = signal<string | null>(null);
 
   protected readonly tabs: { key: InquiryTab; label: string; icon: string }[] = [
     { key: 'flights', label: 'Flights', icon: 'flight' },
@@ -44,7 +43,6 @@ export class QuickInquiry {
 
   protected switchTab(tab: InquiryTab): void {
     this.activeTab.set(tab);
-    this.error.set(null);
   }
 
   protected onSubmit(): void {
@@ -53,7 +51,6 @@ export class QuickInquiry {
       return;
     }
     this.submitting.set(true);
-    this.error.set(null);
 
     this.inquiryService.inquire({
       name: this.inquiryForm.value.name,
@@ -63,13 +60,30 @@ export class QuickInquiry {
       tab: this.activeTab(),
     }).subscribe({
       next: () => {
-        this.submitted.set(true);
         this.submitting.set(false);
         this.inquiryForm.reset();
+        Swal.fire({
+          icon: 'success',
+          title: 'Thank You!',
+          text: "We'll get back to you shortly.",
+          confirmButtonColor: '#0097B2',
+          background: '#031D24',
+          color: '#ffffff',
+          iconColor: '#0097B2',
+        });
       },
-      error: () => {
-        this.error.set('Something went wrong. Please try again.');
+      error: (err: unknown) => {
         this.submitting.set(false);
+        const e = err as { text?: string };
+        Swal.fire({
+          icon: 'error',
+          title: 'Something went wrong',
+          text: e?.text || 'Please try again.',
+          confirmButtonColor: '#0097B2',
+          background: '#031D24',
+          color: '#ffffff',
+          iconColor: '#E6007E',
+        });
       },
     });
   }

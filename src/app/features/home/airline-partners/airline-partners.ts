@@ -8,13 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AirlinePartners {
   logos = [
-    'partners/british-airways.png',
-    'partners/air-france.png',
-    'partners/klm.png',
-    'partners/qatar-airways.png',
-    'partners/lufthansa.png',
-    'partners/emirates.png',
-    'partners/virgin-atlantic.png',
-    'partners/arik-air.png',
+    'partners/British Airways.jpg',
+    'partners/Air France.jpg',
+    'partners/KLM.png',
+    'partners/Qatar Airways.png',
+    'partners/Lufthansa.png',
+    'partners/Emiratess.png',
+    'partners/Virgin Atlantic.jpg',
+    'partners/Arik Air.png',
+    'partners/Aero.jpg',
+    'partners/Qantas.png',
   ];
 }

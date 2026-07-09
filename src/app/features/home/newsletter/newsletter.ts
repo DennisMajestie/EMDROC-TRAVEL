@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-newsletter',
@@ -8,7 +9,6 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './newsletter.css',
 })
 export class Newsletter {
-  protected readonly isSubmitted = signal(false);
   protected newsletterForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -19,7 +19,16 @@ export class Newsletter {
 
   protected onSubmit(): void {
     if (this.newsletterForm.valid) {
-      this.isSubmitted.set(true);
+      this.newsletterForm.reset();
+      Swal.fire({
+        icon: 'success',
+        title: 'Subscribed!',
+        text: 'Thank you for subscribing to our travel advisory.',
+        confirmButtonColor: '#0097B2',
+        background: '#031D24',
+        color: '#ffffff',
+        iconColor: '#0097B2',
+      });
     }
   }
 }

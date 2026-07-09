@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Hero } from '../hero/hero';
 import { DestinationGrid } from '../destination-grid/destination-grid';
-import { WhyChooseUs } from '../why-choose-us/why-choose-us';
 import { AirlinePartners } from '../airline-partners/airline-partners';
 import { Testimonials } from '../testimonials/testimonials';
 import { Newsletter } from '../newsletter/newsletter';
@@ -13,7 +12,6 @@ import { CountUpDirective } from '../../../shared/directives/count-up.directive'
   imports: [
     Hero,
     DestinationGrid,
-    WhyChooseUs,
     AirlinePartners,
     Testimonials,
     Newsletter,

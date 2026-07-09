@@ -22,6 +22,7 @@ export class InquiryService {
           this.emailjs.serviceId,
           this.emailjs.templateId,
           {
+            to_email: 'emdroctravels@yahoo.com',
             from_name: data.name,
             from_email: data.email || 'no-reply@emdroctravel.com',
             phone: data.phone,

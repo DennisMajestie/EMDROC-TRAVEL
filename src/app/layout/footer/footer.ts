@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EMDROC_CONTACT_INFO } from '../../core/models';
 
 @Component({
   selector: 'app-footer',
@@ -8,27 +9,21 @@ import { Component } from '@angular/core';
 })
 export class Footer {
   protected readonly currentYear = new Date().getFullYear();
+  protected readonly contact = EMDROC_CONTACT_INFO;
 
   protected readonly quickLinks = [
-    { label: 'About Us', href: '#' },
-    { label: 'Destinations', href: '#' },
-    { label: 'Travel Packages', href: '#' },
-    { label: 'Corporate Services', href: '#' },
-    { label: 'Visa Assistance', href: '#' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Destinations', href: '/destinations' },
+    { label: 'Services', href: '/services' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   protected readonly services = [
-    { label: 'Flight Booking', href: '#' },
-    { label: 'Hotel Reservations', href: '#' },
-    { label: 'Tour Packages', href: '#' },
-    { label: 'Airport Transfers', href: '#' },
-    { label: 'Travel Insurance', href: '#' },
-  ];
-
-  protected readonly contactInfo = [
-    { label: 'info@emdroctravel.com', href: 'mailto:info@emdroctravel.com' },
-    { label: '+234 800 EMDROC', href: 'tel:+234800363762' },
-    { label: 'Lagos, Nigeria', href: '#' },
+    { label: 'Flight Booking', href: '/services' },
+    { label: 'Hotel Reservations', href: '/services' },
+    { label: 'Tour Packages', href: '/services' },
+    { label: 'Airport Transfers', href: '/services' },
+    { label: 'Travel Insurance', href: '/services' },
   ];
 
   protected readonly socials = [
