@@ -5,7 +5,7 @@
         <div class="w-full h-full bg-cover bg-center" [style.background-image]="'url(' + a.heroImage + ')'"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-[#00161d] via-[#00161d]/40 to-transparent"></div>
       </div>
-      <div class="relative z-10 w-full max-w-[1280px] mx-auto px-margin-desktop pb-section-gap">
+      <div class="relative z-10 w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop pb-12 md:pb-section-gap">
         <div class="flex flex-col gap-stack-md max-w-3xl">
           <div class="flex items-center gap-stack-sm text-[#66d5f1] font-label-sm uppercase tracking-widest">
             <span class="w-8 h-px bg-[#66d5f1]"></span>
@@ -21,7 +21,7 @@
       </div>
     </header>
 
-    <section class="max-w-[1280px] mx-auto px-margin-desktop py-section-gap">
+    <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-section-gap">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
         <article class="lg:col-span-8 flex flex-col gap-stack-lg">
           @for (block of a.blocks; track $index) {
@@ -35,7 +35,7 @@
                 <h2 class="text-headline-md text-[#cde7f0] mt-stack-lg">{{ block.text }}</h2>
               }
               @case ('blockquote') {
-                <div class="my-stack-lg relative py-stack-lg px-margin-desktop border-l-4 border-[#66d5f1] bg-[#041f26] rounded-r-2xl overflow-hidden">
+                <div class="my-stack-lg relative py-stack-lg px-4 md:px-margin-desktop border-l-4 border-[#66d5f1] bg-[#041f26] rounded-r-2xl overflow-hidden">
                   <span class="material-symbols-outlined absolute -top-4 -left-2 text-9xl text-[#66d5f1]/5 select-none pointer-events-none" style="font-variation-settings: 'FILL' 1;">format_quote</span>
                   <blockquote class="relative z-10 text-headline-md text-[#cde7f0] italic leading-snug mb-stack-md">
                     "{{ block.text }}"
@@ -47,7 +47,7 @@
                 </div>
               }
               @case ('imageGrid') {
-                <div class="grid grid-cols-2 gap-gutter my-stack-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter my-stack-lg">
                   @for (img of block.images; track $index) {
                     <div class="aspect-video rounded-2xl overflow-hidden border border-[#3d494c]">
                       <div class="w-full h-full bg-cover bg-center" [style.background-image]="'url(' + img.url + ')'"></div>
@@ -85,11 +85,11 @@
       </div>
     </section>
 
-    <section class="bg-[#001016] py-section-gap">
-      <div class="max-w-[1280px] mx-auto px-margin-desktop">
+    <section class="bg-[#001016] py-12 md:py-section-gap">
+      <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
         <h3 class="text-display-md text-[#cde7f0] mb-stack-lg">Further Advisory</h3>
         <div class="grid grid-cols-12 gap-gutter">
-          <div class="col-span-12 md:col-span-8 relative overflow-hidden rounded-2xl h-[400px] border border-[#3d494c] group">
+          <div class="col-span-12 md:col-span-8 relative overflow-hidden rounded-2xl h-[250px] md:h-[400px] border border-[#3d494c] group">
             <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700" [style.background-image]="'url(' + related[0].image + ')'"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-[#00161d] to-transparent opacity-90"></div>
             <div class="absolute bottom-0 left-0 p-stack-lg max-w-lg">

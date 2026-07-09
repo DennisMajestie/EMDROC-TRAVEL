@@ -1,10 +1,10 @@
-<section class="relative z-20 max-w-container-max mx-auto px-margin-desktop -mt-20">
+<section class="relative z-20 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop -mt-20">
   <div class="bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden border border-outline-variant/10">
-    <div class="flex flex-wrap border-b border-outline-variant">
+    <div class="flex flex-wrap border-b border-outline-variant overflow-x-auto">
       @for (tab of tabs; track tab.key) {
         <button
           (click)="switchTab(tab.key)"
-          class="flex-1 px-6 py-4 flex items-center justify-center gap-2 font-label-md transition-colors"
+          class="flex-1 px-3 md:px-6 py-4 flex items-center justify-center gap-2 font-label-md transition-colors whitespace-nowrap"
           [class]="activeTab() === tab.key
             ? 'text-secondary border-b-2 border-secondary bg-secondary/5'
             : 'text-on-surface-variant hover:bg-surface-container'"
