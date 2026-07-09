@@ -1,5 +1,6 @@
 import { Component, signal, HostListener } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { ThemeService } from '../../core/services/theme.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,6 +10,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class Navbar {
   protected readonly isScrolled = signal(false);
+
+  constructor(protected readonly theme: ThemeService) {}
 
   @HostListener('window:scroll')
   onScroll(): void {
