@@ -1,4 +1,4 @@
-import { Component, signal, computed, OnInit, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
+import { Component, signal, computed, OnInit, OnDestroy, PLATFORM_ID, inject, HostListener } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { HERO_DESTINATIONS, Destination } from '../../../core/models/destination.model';
 
@@ -27,12 +27,27 @@ export class Hero implements OnInit, OnDestroy {
   protected readonly activeIndex = signal(0);
   protected readonly isHovering = signal(false);
   protected readonly isAnimating = signal(false);
+  protected readonly isMobile = signal(false);
 
   protected readonly activeDestination = computed(() => this.destinations[this.activeIndex()]);
+
+  constructor() {
+    if (this.isBrowser) {
+      this.isMobile.set(window.innerWidth < 640);
+    }
+  }
+
+  @HostListener('window:resize')
+  onResize(): void {
+    if (this.isBrowser) {
+      this.isMobile.set(window.innerWidth < 640);
+    }
+  }
 
   protected cardStyle(index: number): CardStyle {
     const total = this.destinations.length;
     const dist = (index - this.activeIndex() + total) % total;
+    const m = this.isMobile();
 
     switch (dist) {
       case 0:
@@ -41,38 +56,38 @@ export class Hero implements OnInit, OnDestroy {
           opacity: 1,
           filter: 'saturate(1)',
           zIndex: 30,
-          width: '300px',
-          height: '380px',
+          width: m ? '180px' : '300px',
+          height: m ? '230px' : '380px',
           pointerEvents: 'auto',
         };
       case 1:
         return {
-          transform: 'translateX(-50px) scale(0.85) rotate(-3deg)',
+          transform: m ? 'translateX(-30px) scale(0.85) rotate(-3deg)' : 'translateX(-50px) scale(0.85) rotate(-3deg)',
           opacity: 0.75,
           filter: 'saturate(0.7)',
           zIndex: 20,
-          width: '260px',
-          height: '330px',
+          width: m ? '150px' : '260px',
+          height: m ? '190px' : '330px',
           pointerEvents: 'none',
         };
       case 2:
         return {
-          transform: 'translateX(-140px) scale(0.7) rotate(-8deg)',
+          transform: m ? 'translateX(-80px) scale(0.7) rotate(-8deg)' : 'translateX(-140px) scale(0.7) rotate(-8deg)',
           opacity: 0.5,
           filter: 'saturate(0.4)',
           zIndex: 10,
-          width: '220px',
-          height: '280px',
+          width: m ? '120px' : '220px',
+          height: m ? '150px' : '280px',
           pointerEvents: 'none',
         };
       default:
         return {
-          transform: `translateX(${dist === total - 1 ? '180px' : '-260px'}) scale(0.5) rotate(0deg)`,
+          transform: `translateX(${dist === total - 1 ? '100px' : '-140px'}) scale(0.5) rotate(0deg)`,
           opacity: 0,
           filter: 'saturate(0)',
           zIndex: 0,
-          width: '200px',
-          height: '250px',
+          width: m ? '100px' : '200px',
+          height: m ? '130px' : '250px',
           pointerEvents: 'none',
         };
     }
