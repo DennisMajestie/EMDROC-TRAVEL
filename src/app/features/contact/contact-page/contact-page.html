@@ -196,19 +196,11 @@
     </div>
   </section>
 
-  <section class="max-w-7xl mx-auto px-margin-mobile md:px-8 mb-12 md:mb-20">
-    <div class="glass-effect rounded-[32px] p-6 md:p-12 text-center relative overflow-hidden">
-      <div class="absolute -bottom-12 -left-12 w-48 h-48 bg-brand-teal/10 rounded-full blur-[60px]"></div>
-      <div class="relative z-10 max-w-xl mx-auto">
-        <h2 class="text-2xl font-bold text-primary mb-4">Ready for a Strategic Partnership?</h2>
-        <p class="text-gray-400 mb-8">
-          Join our network of over 500 global corporations who trust EMDROC for their mission-critical travel logistics.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a class="bg-brand-teal text-white font-bold px-8 py-3 rounded-full hover:brightness-110 transition-all" routerLink="/contact">Schedule a Call</a>
-          <a class="border border-white/10 text-primary font-bold px-8 py-3 rounded-full hover:bg-white/5 transition-all" routerLink="/services">Our Services</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <app-cta
+    title="Ready for a Strategic Partnership?"
+    description="Join our network of over 500 global corporations who trust EMDROC for their mission-critical travel logistics."
+    primaryBtnText="Schedule a Call"
+    secondaryBtnText="Our Services"
+    secondaryBtnLink="/services"
+  />
 </div>

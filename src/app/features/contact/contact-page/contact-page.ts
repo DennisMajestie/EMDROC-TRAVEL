@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { PageHeader } from '../../../shared/components/page-header/page-header';
+import { Cta } from '../../../shared/components/cta/cta';
 import { InquiryService } from '../../../core/services/inquiry.service';
 import { EMDROC_CONTACT_INFO } from '../../../core/models';
 import type { InquiryTab } from '../../../core/models';
@@ -16,7 +17,7 @@ const SERVICE_TAB_MAP: Record<string, InquiryTab> = {
 
 @Component({
   selector: 'app-contact-page',
-  imports: [ReactiveFormsModule, PageHeader],
+  imports: [ReactiveFormsModule, PageHeader, Cta],
   templateUrl: './contact-page.html',
   styleUrl: './contact-page.css',
 })
