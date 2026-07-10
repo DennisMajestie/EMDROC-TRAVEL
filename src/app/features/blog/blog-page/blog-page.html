@@ -21,7 +21,7 @@
     </div>
   </section>
 
-  <section class="py-12 md:py-section-gap px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto" style="background-color: #00161d;">
+  <section class="bg-[#00161d] py-12 md:py-section-gap px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
       @for (article of articles; track article.id) {
         <a [routerLink]="['/blog', article.id]" class="group bg-[#09232a] rounded-3xl overflow-hidden transition-all duration-300 border border-[#3d494c]/10 hover:translate-y-[-4px] hover:shadow-[0_12px_24px_-8px_rgba(0,104,123,0.3)]">
