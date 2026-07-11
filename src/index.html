@@ -29,9 +29,10 @@
       display: flex; align-items: center; justify-content: center;
     }
     .init-preloader__logo-image {
-      width: 96px;
+      width: 160px;
       height: auto;
       display: block;
+      animation: initHeartbeat 1.2s ease-in-out infinite;
     }
     .init-preloader__brand {
       font-family: 'Be Vietnam Pro', sans-serif;
@@ -39,20 +40,12 @@
       color: #0097B2;
       margin-top: 12px;
     }
-    .init-preloader__bar {
-      width: 200px; height: 2px;
-      background: rgba(102,213,241,0.15); border-radius: 2px; overflow: hidden;
-    }
-    .init-preloader__bar-fill {
-      height: 100%; width: 0%;
-      background: linear-gradient(90deg, #66d5f1, #0097B2);
-      border-radius: 2px;
-      animation: initFill 1.5s ease-in-out forwards;
-    }
-    @keyframes initFill {
-      0% { width: 0%; }
-      50% { width: 60%; }
-      100% { width: 100%; }
+    @keyframes initHeartbeat {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.08); }
+      50% { transform: scale(1); }
+      75% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
     .init-preloader__tagline {
       font-family: 'Inter', sans-serif;
@@ -77,9 +70,6 @@
       <div class="init-preloader__content">
         <div class="init-preloader__logo">
           <img src="logo.png" alt="EMDROC Logo" class="init-preloader__logo-image" />
-        </div>
-        <div class="init-preloader__bar">
-          <div class="init-preloader__bar-fill"></div>
         </div>
         <p class="init-preloader__tagline">Premium Corporate Travel Advisory</p>
       </div>
