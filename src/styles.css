@@ -173,6 +173,11 @@
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
 }
 
+#main-nav.glass-effect,
+.light-mode #main-nav.glass-effect {
+  background: transparent;
+}
+
 .light-mode .hero-gradient {
   background: linear-gradient(180deg, rgb(21 36 51 / 40%) 0%, rgb(69 127 185 / 32%) 80%, #336495 100%);
 }
