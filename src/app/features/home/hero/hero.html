@@ -1,4 +1,4 @@
-<section class="hero-section relative min-h-[90vh] flex items-start md:items-center pt-24 md:pt-20 overflow-hidden" data-purpose="hero-container">
+<section class="hero-section relative min-h-[85vh] flex items-center justify-center overflow-hidden" data-purpose="hero-container">
   <div class="absolute inset-0 z-0">
     @for (dest of destinations; track dest.id; let i = $index) {
       <div
@@ -11,11 +11,11 @@
     <div class="absolute inset-0 hero-gradient"></div>
   </div>
 
-  <div class="relative z-10 max-w-7xl mx-auto px-margin-mobile md:px-8 w-full">
-    <div class="max-w-2xl space-y-5 md:space-y-8 text-center md:text-left pt-4 md:pt-0">
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-none">
+  <div class="relative z-10 max-w-7xl mx-auto px-margin-mobile md:px-8 w-full py-12 md:py-20">
+    <div class="max-w-2xl space-y-5 md:space-y-8 text-center md:text-left">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-none">
         {{ activeDestination().heroTitle }}
-        <span class="block text-brand-teal text-2xl sm:text-3xl lg:text-4xl font-black mt-1">{{ activeDestination().heroSubtitle }}</span>
+        <span class="block text-brand-teal text-3xl sm:text-3xl lg:text-4xl font-black mt-1">{{ activeDestination().heroSubtitle }}</span>
       </h1>
       <p class="text-sm sm:text-base lg:text-lg text-gray-200 max-w-md leading-relaxed mx-auto md:mx-0">
         Paris. London. Tokyo. Iguazu. Rome. Serengeti. Giza. Kenya. Eight icons. One lifetime. Where will your story begin?
@@ -37,9 +37,5 @@
     </div>
   </div>
 
-  <div class="absolute bottom-0 left-0 w-full z-20 pointer-events-none">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="w-full h-[80px]">
-      <path class="hero-svg-curve" d="M0,30 C240,70 480,-10 720,30 C960,70 1200,-10 1440,30 L1440,80 L0,80 Z" fill="#031D24"></path>
-    </svg>
-  </div>
+  <div class="absolute bottom-0 left-0 w-full h-12 md:h-20 z-20 pointer-events-none" style="background: #031D24"></div>
 </section>
