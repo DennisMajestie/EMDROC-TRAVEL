@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 
 interface Destination {
   id: string;
@@ -21,7 +21,7 @@ export class DestinationGrid {
       id: 'dubai',
       name: 'Dubai: The Corporate Oasis',
       tag: 'Middle East',
-      image: '/Hero-slider/0cd70f09a5b1fad7ee9f29f12dbd1c5e.jpg',
+      image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80',
       description: 'Seamless business integration meeting world-class leisure in the heart of the desert.',
       featured: true,
     },
@@ -29,7 +29,7 @@ export class DestinationGrid {
       id: 'paris',
       name: 'Parisian Elegance',
       tag: 'Europe',
-      image: '/Hero-slider/0ac063cf43554c04b070e480da4a6de3.jpg',
+      image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&q=80',
       description: '',
       featured: false,
     },
@@ -37,7 +37,7 @@ export class DestinationGrid {
       id: 'maldives',
       name: 'Maldivean Retreats',
       tag: 'Island Paradise',
-      image: '/Hero-slider/ffa611281d20c406337ae73729a34b92.jpg',
+      image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=600&q=80',
       description: '',
       featured: false,
     },
@@ -45,7 +45,7 @@ export class DestinationGrid {
       id: 'santorini',
       name: 'Santorini Dreams',
       tag: 'Greece',
-      image: '/Hero-slider/7c6c5cdb3979e2b4bcbebb538fd1757b.jpg',
+      image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&q=80',
       description: '',
       featured: false,
     },
@@ -53,7 +53,7 @@ export class DestinationGrid {
       id: 'bali',
       name: 'Bali Paradise',
       tag: 'Indonesia',
-      image: '/about/modern-office-building.jpg',
+      image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80',
       description: '',
       featured: false,
     },

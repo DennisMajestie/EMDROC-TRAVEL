@@ -24,8 +24,8 @@ export const HERO_DESTINATIONS: Destination[] = [
     rating: '9.2 ★',
     heroTitle: 'Discover Bali',
     heroSubtitle: 'Tropical Paradise',
-    backgroundImage: '/Hero-slider/0ac063cf43554c04b070e480da4a6de3.jpg',
-    cardImage: '/Hero-slider/0ac063cf43554c04b070e480da4a6de3.jpg',
+    backgroundImage: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&q=80',
+    cardImage: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80',
   },
   ...SLIDER_IMAGES.map((s, i) => ({
     id: `slide-${i}`,

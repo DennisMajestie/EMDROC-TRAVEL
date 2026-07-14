@@ -71,11 +71,11 @@ const ARTICLES: ArticleContent[] = [
         type: 'imageGrid',
         images: [
           {
-            url: '/blog/corporate-aviation.jpg',
+            url: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80',
             alt: 'Modern airport terminal at twilight',
           },
           {
-            url: '/blog/dubai-luxury.jpg',
+            url: 'https://images.unsplash.com/photo-1544507888-56d73eb6046e?w=600&q=80',
             alt: 'Luxury travel itinerary on marble',
           },
         ],
@@ -122,11 +122,11 @@ const ARTICLES: ArticleContent[] = [
         type: 'imageGrid',
         images: [
           {
-            url: '/blog/modern-city.jpg',
+            url: 'https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=600&q=80',
             alt: 'Modern airport immigration hall with digital kiosks',
           },
           {
-            url: '/blog/sustainable-nature.jpg',
+            url: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80',
             alt: 'Global network connections map',
           },
         ],
@@ -173,11 +173,11 @@ const ARTICLES: ArticleContent[] = [
         type: 'imageGrid',
         images: [
           {
-            url: '/blog/luxury-retreat.jpg',
+            url: 'https://images.unsplash.com/photo-1511497584788-876760111969?w=600&q=80',
             alt: 'Eco-luxury safari lodge overlooking savannah',
           },
           {
-            url: '/blog/african-heritage.jpg',
+            url: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=80',
             alt: 'Lush green forest canopy from above',
           },
         ],
@@ -224,11 +224,11 @@ const ARTICLES: ArticleContent[] = [
         type: 'imageGrid',
         images: [
           {
-            url: '/blog/luxury-resort.jpg',
+            url: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80',
             alt: 'Leather travel accessories on dark marble',
           },
           {
-            url: '/blog/corporate-aviation.jpg',
+            url: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80',
             alt: 'Minimalist sneakers and travel gear',
           },
         ],
@@ -275,11 +275,11 @@ const ARTICLES: ArticleContent[] = [
         type: 'imageGrid',
         images: [
           {
-            url: '/blog/dubai-luxury.jpg',
+            url: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80',
             alt: 'Luxury private villa with ocean view',
           },
           {
-            url: '/blog/modern-city.jpg',
+            url: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&q=80',
             alt: 'Executive boardroom with nature backdrop',
           },
         ],
@@ -326,11 +326,11 @@ const ARTICLES: ArticleContent[] = [
         type: 'imageGrid',
         images: [
           {
-            url: '/blog/sustainable-nature.jpg',
+            url: 'https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=600&q=80',
             alt: 'Executive in traditional attire during heritage visit',
           },
           {
-            url: '/blog/sustainable-nature.jpg',
+            url: 'https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=600&q=80',
             alt: 'African cultural ceremony with community elders',
           },
         ],
@@ -364,7 +364,7 @@ const TRENDING: TrendingLink[] = [
 const RELATED: RelatedArticle[] = [
   {
     title: 'Regenerative Hospitality in Sub-Saharan Frontiers',
-    image: '/blog/luxury-resort.jpg',
+    image: 'https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?w=800&q=80',
     tag: 'Sustainability',
     excerpt: 'Exploring eco-luxury retreats that blend conservation with corporate retreat programming.',
   },
